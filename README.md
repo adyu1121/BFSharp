@@ -1,4 +1,4 @@
-[![NuGet Badge](https://buildstats.info/nuget/BFshap)](https://www.nuget.org/packages/BFshap/)
+[![NuGet Badge](https://buildstats.info/nuget/BFSharp-Brainfuck_Library)](https://www.nuget.org/packages/BFshap/)
 # BFShap
 It is a BF implementation made with C#.
 

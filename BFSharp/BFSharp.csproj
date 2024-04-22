@@ -7,24 +7,24 @@
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <SignAssembly>False</SignAssembly>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>BFShap</Title>
+    <Title>BFSharp-Brainfuck_Library</Title>
     <Authors>ADyu</Authors>
     <Copyright>MIT License</Copyright>
     <Description>It is a BF implementation made with C#.</Description>
     <PackageProjectUrl>https://github.com/adyu1121</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/adyu1121/BFshap</RepositoryUrl>
+    <RepositoryUrl>https://github.com/adyu1121/BFSharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>C#;Brainfuck</PackageTags>
-    <Version>1.1.1</Version>
+    <Version>1.1.0</Version>
     <PackageIcon>Icon.png</PackageIcon>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>The BFShap 1.1
+    <PackageReleaseNotes>The BFSharp 1.0
 
-namespace change  
-Error struct is individual 
+The first BFSharp version
 
-For more information, please refer to https://github.com/adyu1121/BFshap/releases/tag/V1.1</PackageReleaseNotes>
+For more information, please refer to https://github.com/adyu1121/BFSharp/releases/tag/V1.0</PackageReleaseNotes>
+    <PackageId>$(AssemblyName)-Brainfuck_Library</PackageId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -40,7 +40,7 @@ For more information, please refer to https://github.com/adyu1121/BFshap/release
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\..\..\Desktop\LICENSE.txt">
+    <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
