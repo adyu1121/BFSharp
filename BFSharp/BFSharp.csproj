@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <SignAssembly>False</SignAssembly>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>BFSharp-Brainfuck_Library</Title>
+    <Title>BFSharp-Brainfuck_Interpreter</Title>
     <Authors>ADyu</Authors>
     <Copyright>MIT License</Copyright>
     <Description>It is a BF implementation made with C#.</Description>
@@ -24,7 +24,7 @@
 The first BFSharp version
 
 For more information, please refer to https://github.com/adyu1121/BFSharp/releases/tag/V1.0</PackageReleaseNotes>
-    <PackageId>$(AssemblyName)-Brainfuck_Library</PackageId>
+    <PackageId>$(AssemblyName)-Brainfuck_Interpreter</PackageId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
