@@ -1,4 +1,4 @@
-﻿namespace BrainFuck.BFShap
+﻿namespace BrainFuck.BFSharp
 {
     public enum ErrorrCode
     {
