@@ -24,7 +24,7 @@ static void output(char ASCII){
 }
 ```
 
-Creat BF Cless.
+Creat BF Class.
 -------------
 `BF bf = new BF(input, output);`
 
