@@ -24,9 +24,9 @@ static void output(char ASCII){
 }
 ```
 
-Creat BF Class.
+Creat BFSharp Class.
 -------------
-`BF bf = new BF(input, output);`
+`BFSharp bf = new BFSharp(input, output);`
 
 
 Access the "bf.Code" property and enter the bf code.

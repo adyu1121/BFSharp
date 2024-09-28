@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BFSharp", "BFSharp.csproj", "{18F377BD-80B2-41BC-BE75-C8836234BBEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "..\Example\Example.csproj", "{CEDA0104-C2D9-4BD9-B196-32246B5F1D5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{18F377BD-80B2-41BC-BE75-C8836234BBEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18F377BD-80B2-41BC-BE75-C8836234BBEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18F377BD-80B2-41BC-BE75-C8836234BBEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDA0104-C2D9-4BD9-B196-32246B5F1D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDA0104-C2D9-4BD9-B196-32246B5F1D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDA0104-C2D9-4BD9-B196-32246B5F1D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDA0104-C2D9-4BD9-B196-32246B5F1D5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

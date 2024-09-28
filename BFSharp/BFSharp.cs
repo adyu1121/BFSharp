@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using static BrainFuck.BFSharp.BFSharp;
 
 namespace BrainFuck.BFSharp
 {
@@ -28,7 +29,9 @@ namespace BrainFuck.BFSharp
         /// </summary>
         /// <param name="ASCII"></param>
         public delegate void Output(char ASCII);
+        #endregion
 
+        #region const def
         private const ushort MemoryLength = 32768;
         #endregion
 
@@ -76,6 +79,7 @@ namespace BrainFuck.BFSharp
         /// This is the memory address of the current
         /// </summary>
         public int Pointer { get; private set; }
+        public BFSetting Setting { get; set; } = BFSetting.DefaultBFSetting;
         #endregion
 
         #region Private valuable
@@ -96,7 +100,14 @@ namespace BrainFuck.BFSharp
             SetIn(input);
             SetOut(output);
         }
-
+        public BFSharp(TextReader reader, TextWriter writer) : this(string.Empty, reader, writer) { }
+        public BFSharp(string code, TextReader reader, TextWriter writer)
+        {
+            Init();
+            Code = code;
+            SetIn(reader);
+            SetOut(writer);
+        }
         /// <summary>
         /// Reset the progress of code
         /// </summary>
@@ -108,6 +119,7 @@ namespace BrainFuck.BFSharp
             LoopStack.Clear();
             LastError = new Error(0, -1);
         }
+
         /// <summary>
         /// Change the function to run when run ","
         /// </summary>
@@ -116,14 +128,16 @@ namespace BrainFuck.BFSharp
         {
             InputFunc = input;
         }
+
         /// <summary>
         /// Change the function to run when run ","
         /// </summary>
-        /// <param name="input">function that will be executed when "," is executed.</param>
-        public void SetIn(TextReader input)
+        /// <param name="reader">function that will be executed when "," is executed.</param>
+        public void SetIn(TextReader reader)
         {
-            InputFunc = () => (char)input.Read();
+            InputFunc = () => (char)reader.Read();
         }
+
         /// <summary>
         /// Change the function to run when run "."
         /// </summary>
@@ -132,22 +146,22 @@ namespace BrainFuck.BFSharp
         {
             OutputFunc = output;
         }
+
         /// <summary>
         /// Change the function to run when run "."
         /// </summary>
-        /// <param name="output">function that will be executed when "." is executed.</param>
-        public void SetOut(TextWriter output)
+        /// <param name="writer">function that will be executed when "." is executed.</param>
+        public void SetOut(TextWriter writer)
         {
-            OutputFunc = x => output.Write(x);
+            OutputFunc = x => writer.Write(x);
         }
+
         /// <summary>
         /// Returns the error of the last execution
         /// </summary>
         /// <returns>Last called error</returns>
-        public Error GetLastError()
-        {
-            return LastError;
-        }
+        public Error GetLastError() => LastError;
+
         /// <summary>
         /// Executes steps as many times as ¡°loop¡±. -1 means it runs until the end.
         /// </summary>
@@ -162,6 +176,7 @@ namespace BrainFuck.BFSharp
             }
             return true;
         }
+
         /// <summary>
         /// Run the code one step
         /// </summary>
@@ -194,6 +209,7 @@ namespace BrainFuck.BFSharp
                     Memory[Pointer] = InputFunc();
                     break;
                 case symbolList.OutPut:
+                    if(Memory[Pointer] <= -1) return RunError(ErrorrCode.SignOutput);
                     OutputFunc((char)Memory[Pointer]);
                     break;
                 case symbolList.LoopStart:
@@ -231,12 +247,50 @@ namespace BrainFuck.BFSharp
             Index++;
             return true;
         }
-        public override string ToString() 
-        {
-            return Code;
-        }
+        public override string ToString() => Code;
         private bool RunError(ErrorrCode error)
         {
+
+            Index++;
+            switch (error)
+            {
+                case ErrorrCode.Overflow:
+                    if (!Setting.OverFlowIsError)
+                    {
+                        Memory[Pointer] = long.MinValue;
+                        return true;
+                    }
+                    break;
+                case ErrorrCode.Underflow:
+                    if (!Setting.UnderFlowError)
+                    {
+                        Memory[Pointer] = long.MaxValue;
+                        return true;
+                    }
+                    break;
+                case ErrorrCode.MemoryOver:
+                    if (!Setting.MemoryOverIsError)
+                    {
+                        Pointer = 0;
+                        return true;
+                    }
+                    break;
+                case ErrorrCode.MemoryUnder:
+                    if (!Setting.MemoryUnderIsError)
+                    {
+                        Pointer = MemoryLength - 1;
+                        return true;
+                    }
+                    break;
+                case ErrorrCode.SignOutput:
+                    if (!Setting.SignValueOutput)
+                    {
+                        OutputFunc(Setting.SignValue);
+                        return true;
+                    }
+                    break;
+            }
+            Index--;
             LastError = new Error(error, Index);
             return false;
         }

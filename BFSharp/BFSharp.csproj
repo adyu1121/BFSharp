@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/adyu1121/BFSharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>C#;Brainfuck</PackageTags>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <PackageIcon>Icon.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -23,7 +23,7 @@
 
 The first BFSharp version
 
-For more information, please refer to https://github.com/adyu1121/BFSharp/releases/tag/V1.0</PackageReleaseNotes>
+For more information, please refer to https://github.com/adyu1121/BFSharp/releases/tag/V1.2.0</PackageReleaseNotes>
     <PackageId>$(AssemblyName)-Brainfuck_Interpreter</PackageId>
   </PropertyGroup>
 

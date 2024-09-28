@@ -1,12 +1,13 @@
 ﻿namespace BrainFuck.BFSharp
 {
-    public enum ErrorrCode
+    public enum ErrorrCode : sbyte
     {
         Overflow = 1, Underflow,
         MemoryOver, MemoryUnder,
         LoopIsUnstart, LoopIsUnend,
+        EOFInput, SignOutput,
         //InputFuncIsNull, OutputFuncIsNull,
-        CodeEnd
+        CodeEnd = 0
     }
     public struct Error
     {
